@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrutkiran</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: pink;
+            background-image: url("C:/Users/Administrator/OneDrive/Documents/collage/Project sem VI/keyboard.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 30px;
+        }
+
+        /* General Container Styles */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            
+
+        }
+
+        /* Individual Container Styles */
+        .resume-box {
+            background-color: #ffebcc;
+            border: 2px solid #ff9900;
+            transition: transform 1.0s ease-in-out, background-color 0.5s, box-shadow 0.5s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .container:hover {
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(8, 5, 4, 2.8);
+        }
+
+        .upload-box {
+            background-color: #d1f7c4;
+            border: 2px solid #4caf50;
+            
+        }
+
+        .interview-box {
+            background-color: #cce5ff;
+            border: 2px solid #007bff;
+            
+        }
+
+        .company-box {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            
+        }
+
+        .whatsapp-box {
+            background-color: #eaffd0;
+            border: 2px solid #28a745;
+            
+        }
+
+        .job-box {
+            background-color: #f3e5f5;
+            border: 2px solid #9c27b0;
+           
+        }
+
+        /* Button Styles */
+        button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        /* Unique Button Colors */
+        .resume-box button {
+            background: #44e4f0;
+        }
+        .upload-box button {
+            background: #4caf50;
+        }
+        .interview-box button {
+            background: #007bff;
+        }
+        .company-box button {
+            background: #dc3545;
+        }
+        .whatsapp-box button {
+            background: #28a745;
+        }
+        .job-box button {
+            background: #9c27b0;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ffcc5c, #ff6b6b);
+            transform: scale(1.05);
+        }
+
+        /* List Style */
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        img{
+            position:absolute;
+            width:300px;
+            top: 10px;
+            right:10px;
+            height:auto;
+            padding-top: 100px;            
+        }
+        .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+  }
+  
+  .logo span {
+    color: #fa6021;
+  }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav__logo">
+            <a href="#" class="logo">Career<span>Trackr</span></a>
+        </div>
+        <h2>Your Future Starts Here...!</h2>
+    </header>
+
+    <!-- Resume Container-->
+    <div class="container resume-box">
+        <a href="resume.html"><button>Create Resume</button></a>
+        <ul>
+            <li>Create your own resume</li>
+            <li>Use the best pamphlet</li>
+        </ul>
+    </div>
+    
+
+    <!-- Upload Resume Container -->
+    <div class="container upload-box">
+        <button onclick="openPopup()">Upload Resume</button>
+        <ul>
+            <li>Upload from device</li>
+            <li>Use Canva for the best pamplet</li>
+        </ul>
+    </div>
+    <div class="popup" id="popup">
+        <h2>Upload Resume</h2>
+        <input type="file" id="pdfFile" accept="application/pdf">
+        <p id="fileName"></p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- Practice for Interview Container -->
+    <div class="container interview-box">
+        <button>Practice for Interview</button>
+        <ul>
+            <li>Download PDF for interview preparation</li>
+            <li>Contact customer care for more PDFs</li>
+        </ul>
+    </div>
+
+    <!-- WhatsApp Contact Container -->
+    <div class="container whatsapp-box">
+        <a href="https://wa.me/9373799792"><button>WhatsApp for More PDFs</button></a>
+        <ul>
+            <li>Contact the developer for more information</li>
+        </ul>
+    </div>
+
+    <!-- Job Listings Container -->
+    <div class="container job-box">
+        <a href="job_finding.html"><button type="submit">Job Listings</button></a>
+        <ul>
+            <li>Find the latest job openings</li>
+            <li>Apply directly from here</li>
+        </ul>
+    </div>
+
+    <script>
+        function openPopup() {
+            alert("Upload Resume feature coming soon!");
+        }
+
+
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+        document.getElementById("pdfFile").addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                document.getElementById("fileName").textContent = "Selected file: " + file.name;
+                alert("File uploaded successfully!");
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+

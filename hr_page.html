@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerTrackr.com - Resume Submission & Job Hunting Portal</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      color: white;
+
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    section {
+      padding: 30px;
+      margin: 30px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #e67e22;
+    }
+
+    .form-container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #333;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .developer-button {
+      display: block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .developer-button:hover {
+      background-color: #2980b9;
+    }
+    .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  .logo span {
+    color: #fa6021;
+  }
+  </style>
+</head>
+<body    background-image: url("C:\Users\Administrator\OneDrive\Documents\collage\Project sem VI\hr.jpg.jpeg");
+background-size: cover;
+background-repeat: no-repeat;
+;>
+
+
+  <header>
+    <div class="nav__logo">
+      <a class="logo">WELCOME to Career<span>Trackr</span></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" onclick="showSection('hr-section')">HR Section</a></li>
+       <li> <a href="https://wa.me/9373799792">
+            Speak with Developer
+          </a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="active">
+        
+      <h2>Welcome to CareerTrackr.com</h2>
+      <p>HR can view the resumes and documents submitted by students for interviews.</p>
+    </section>
+
+    <!-- HR Section -->
+    <section id="hr-section">
+      <h2>HR Dashboard</h2>
+      <div class="form-container">
+        <h3>View Submitted Documents</h3>
+        <div id="student-doc-list">
+          <!-- Dynamically populated student documents will appear here -->
+        </div>
+
+        <!-- Speak with Developer Button -->
+        
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CareerTrackr.com. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Resume Generator</title>
+    <link rel="stylesheet" href="resume.css">
+    <script defer src="resume.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <form id="resumeForm">
+            <h2>Student Resume Form</h2>
+
+            <h3>Personal Information</h3>
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="text" id="role" placeholder="Your Role (e.g., Student, Developer)" required>
+            <textarea id="summary" placeholder="Professional Summary"></textarea>
+
+            <h3>Contact Information</h3>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Phone" required>
+            <input type="text" id="location" placeholder="Location (City, Country)" required>
+            <input type="text" id="linkedin" placeholder="LinkedIn Profile">
+            <input type="text" id="website" placeholder="Personal Website">
+
+            <h3>Work Experience</h3>
+            <textarea id="experience" placeholder="List your past jobs, internships, or projects"></textarea>
+
+            <h3>Education</h3>
+            <input type="text" id="degree" placeholder="Degree" required>
+            <input type="text" id="university" placeholder="University/College" required>
+            <input type="number" id="graduationYear" placeholder="Graduation Year" required>
+
+            <h3>Skills</h3>
+            <textarea id="skills" placeholder="List skills separated by commas"></textarea>
+
+            <h3>Projects</h3>
+            <textarea id="projects" placeholder="Describe projects"></textarea>
+
+            <h3>Languages</h3>
+            <textarea id="languages" placeholder="Languages you know"></textarea>
+
+            <h3>Interests</h3>
+            <textarea id="interests" placeholder="Hobbies and interests"></textarea>
+			<button type="button" onclick="showPopup()">Generate Resume</button>
+  </form>
+</div>
+
+<script>
+function showPopup() {
+if (confirm("Are you want to continue?")) {
+setTimeout(() => { alert("Congratulation your resume has bees generated successfully..!"); }, 2000);
+}
+}
+</script>
+    
+
+    <div class="resume-container">
+        <div id="resumeOutput">
+            <button onclick="window.print()">Print / Save as PDF</button>
+            <h2 class="name"></h2>
+            <p class="role"></p>
+            <p class="summary"></p>
+
+            <h3>Contact</h3>
+            <p class="email"></p>
+            <p class="phone"></p>
+            <p class="location"></p>
+            <p class="linkedin"></p>
+            <p class="website"></p>
+
+            <h3>Work Experience</h3>
+            <p class="experience"></p>
+
+            <h3>Education</h3>
+            <p class="education"></p>
+
+            <h3>Skills</h3>
+            <p class="skills"></p>
+
+            <h3>Projects</h3>
+            <p class="projects"></p>
+
+            <h3>Languages</h3>
+            <p class="languages"></p>
+
+            <h3>Interests</h3>
+            <p class="interests"></p>
+        </div>
+    </div>
+	
+	<a href="practice.html"><button type="button">BACK</button></a>
+
+</body>
+</html>

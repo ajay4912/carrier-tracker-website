@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerTrackr.com - HR Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #document-viewer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        #document-viewer button{
+          margin-top: 10px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-container button, .back-button {
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-container button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .search-container button:hover {
+            background-color: #218838;
+        }
+
+        .back-button {
+            background-color: #ccc;
+            color: #333;
+            border: none;
+            display: none; /* Initially hidden */
+        }
+
+        .back-button:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HR Dashboard - Student Information</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by Name or Email">
+            <button onclick="searchStudents()">Search</button>
+            <button class="back-button" onclick="resetSearch()">Back</button>
+        </div>
+        <h2>Student List</h2>
+        <table id="student-table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Major</th>
+                    <th>Applied Company</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div id="document-viewer">
+        <h2>Student Documents</h2>
+        <div id="document-list"></div>
+        <button onclick="closeDocumentViewer()">Close</button>
+    </div>
+
+    <script>
+        const students = [
+            { id: 1, name: 'Alice', email: 'alice@example.com', major: 'Computer Science', appliedCompany: 'Google', resume: 'alice_resume.pdf', coverLetter: 'alice_coverletter.pdf', transcript: 'alice_transcript.pdf' },
+            { id: 2, name: 'Bob', email: 'bob@example.com', major: 'Engineering', appliedCompany: 'Microsoft', resume: 'bob_resume.pdf', coverLetter: 'bob_coverletter.pdf', transcript: 'bob_transcript.pdf' },
+            { id: 3, name: 'Charlie', email: 'charlie@example.com', major: 'Business', appliedCompany: 'Amazon', resume: 'charlie_resume.pdf', coverLetter: 'charlie_coverletter.pdf', transcript: 'charlie_transcript.pdf' }
+        ];
+
+        const studentTable = document.getElementById('student-table').getElementsByTagName('tbody')[0];
+        const documentViewer = document.getElementById('document-viewer');
+        const documentList = document.getElementById('document-list');
+        const searchInput = document.getElementById('searchInput');
+        const backButton = document.querySelector('.back-button');
+
+        function populateTable(studentData = students) {
+            studentTable.innerHTML = '';
+            studentData.forEach(student => {
+                let row = studentTable.insertRow();
+                let idCell = row.insertCell(0);
+                let nameCell = row.insertCell(1);
+                let emailCell = row.insertCell(2);
+                let majorCell = row.insertCell(3);
+                let companyCell = row.insertCell(4);
+                let actionsCell = row.insertCell(5);
+
+                idCell.textContent = student.id;
+                nameCell.textContent = student.name;
+                emailCell.textContent = student.email;
+                majorCell.textContent = student.major;
+                companyCell.textContent = student.appliedCompany;
+
+                let viewButton = document.createElement('button');
+                viewButton.textContent = 'View Documents';
+                viewButton.onclick = () => viewDocuments(student);
+                actionsCell.appendChild(viewButton);
+            });
+        }
+
+        function viewDocuments(student) {
+            documentList.innerHTML = '';
+            ['resume', 'coverLetter', 'transcript'].forEach(docType => {
+                if (student[docType]) {
+                    let docItem = document.createElement('p');
+                    docItem.textContent = `${docType}: ${student[docType]}`;
+                    documentList.appendChild(docItem);
+                }
+            });
+            documentViewer.style.display = 'block';
+        }
+
+        function closeDocumentViewer() {
+            documentViewer.style.display = 'none';
+        }
+
+        function searchStudents() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredStudents = students.filter(student => {
+                return student.name.toLowerCase().includes(searchTerm) || student.email.toLowerCase().includes(searchTerm);
+            });
+            populateTable(filteredStudents);
+            backButton.style.display = 'inline-block';
+        }
+
+        function resetSearch() {
+            populateTable();
+            searchInput.value = '';
+            backButton.style.display = 'none';
+        }
+
+        populateTable();
+    </script>
+</body>
+</html>

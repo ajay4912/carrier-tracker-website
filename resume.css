@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #c9d6ff;
+	background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+	background-image: url('computer.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container, .resume-container {
+    background: #fff;
+    width: 60%;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #0073b1;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 60px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #005f8b;
+}
+
+.resume-container {
+    display: none;
+}
+
+#resumeOutput {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.role {
+    font-size: 18px;
+    text-align: center;
+}
+
+h3 {
+    background: #e3e6ea;
+    padding: 5px;
+    border-radius: 5px;
+    
+}

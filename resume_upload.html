@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+    <div class="container">
+		<button>Create resume</button>
+        <input type="file" id="fileInput" onchange="showConfirmButton()">
+        <button id="confirmBtn" onclick="confirmUpload()">Confirm Upload</button>
+        
+    </div>
+	<div class="container2">
+	<button id="resetBtn" onclick="resetUpload()">Reset</button>
+	</div>
+    <script src="pdf.js"></script>
+
+</body>
+</html>
