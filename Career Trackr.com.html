@@ -1,0 +1,60 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login_page.css">
+    <title>CareerTrackr.com</title>
+</head>
+
+<body>
+    <div class="container" id="container"> 
+        <div class="form-container sign-up">  
+            <form>
+                <div class="nav__logo">
+                    <a href="#" class="logo">Career<span>Trackr</span></a>
+                </div>
+                <h1>Hellow HR..!</h1>
+                
+                <input type="Student ID " placeholder="Student ID">
+                <input type="password" placeholder="Password">
+				<a href="hr_page.html"><button type="button">Continue</button></a>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <div class="nav__logo">
+                <a href="#" class="logo">Career<span>Trackr</span></a>
+            </div>
+                <h1>Hello Student..!</h1>
+                <input type="name" placeholder="Your name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password"  required>
+                <a href="forget_your_password.html">Forget Your Password?</a>
+                <a href="practice.html"><button type="button">continue</button></a>
+				
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome HR..!</h1>
+                    <p>Hellow HR,Please enter student id & password for accessing his all information.</p>
+                    <button class="hidden" id="login">Student</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Students!</h1>
+                    <p>Register your all information which is true. </p>
+                    <p>⚠️Warning: If you forget your password, you will not be able to reset or recover it. Keep it safe! (For security purpose)</p>
+                    <button class="hidden" id="register">HR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login_page.js"></script>
+	
+	
+</body>
+
+</html>
